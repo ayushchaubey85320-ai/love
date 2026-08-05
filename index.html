@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Shreya 💖 | Special Surprise</title>
+  <meta name="description" content="A magical, interactive birthday surprise website made with endless love.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Fullscreen Particle Physics Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- 🎁 ENTRANCE / GIFT UNBOXING OVERLAY -->
+  <div id="unboxing-screen" class="unboxing-overlay">
+    <div class="unboxing-content">
+      <div class="floating-hearts-bg"></div>
+      <div class="gift-container" id="gift-box-btn">
+        <div class="gift-box">
+          <div class="gift-lid">
+            <div class="ribbon-bow">
+              <div class="bow-left"></div>
+              <div class="bow-right"></div>
+            </div>
+          </div>
+          <div class="gift-body">
+            <div class="ribbon-vertical"></div>
+            <div class="ribbon-horizontal"></div>
+          </div>
+        </div>
+      </div>
+      <h1 class="unboxing-title">A Special Surprise Belongs to You 🎁</h1>
+      <p class="unboxing-subtitle">Tap the gift box to unlock your birthday magic</p>
+      <button class="btn-primary open-gift-btn" id="open-gift-trigger">
+        <i class="fa-solid fa-heart-pulse"></i> Open My Surprise
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN APP CONTENT (Revealed after unboxing) -->
+  <div id="main-app" class="main-app hidden">
+    
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+      <div class="nav-brand">
+        <span class="brand-heart">💖</span>
+        <span class="brand-title">For Shreya</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#memories" class="nav-link">Memories</a>
+        <a href="#reasons" class="nav-link">Love Deck</a>
+        <a href="#cake-section" class="nav-link">Make a Wish</a>
+        <a href="#letter-section" class="nav-link">Love Letter</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="audio-toggle-btn" class="icon-btn" title="Toggle Romantic Music">
+          <i class="fa-solid fa-music"></i>
+          <span class="sound-wave hidden">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
+        <button id="customizer-toggle-btn" class="btn-secondary nav-edit-btn" title="Customize Names & Text">
+          <i class="fa-solid fa-sliders"></i> Customize
+        </button>
+      </div>
+    </header>
+
+    <!-- SECTION 1: HERO BIRTHDAY BANNER -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <div class="romantic-badge floating">
+          <i class="fa-solid fa-sparkles"></i> Happy birthday meri Sohna <i class="fa-solid fa-sparkles"></i>
+        </div>
+        <h1 class="hero-title">
+          Happy Birthday, <br>
+          <span class="gradient-text gf-name-display">Shreya</span> ✨
+        </h1>
+        <p class="hero-subtitle">
+          Happy birthday meri Sohna, baki sab thik h! Today is all about celebrating you, the most gorgeous and incredible person in my world. You bring endless joy and magic to my life every single day!
+        </p>
+
+        <!-- Dynamic Counter / Age Celebration Badge -->
+        <div class="counter-card glass-panel">
+          <div class="counter-item">
+            <span class="counter-num" id="days-count">365</span>
+            <span class="counter-label">Days of Smiles</span>
+          </div>
+          <div class="counter-divider"></div>
+          <div class="counter-item">
+            <span class="counter-num">8,760</span>
+            <span class="counter-label">Hours of Warmth</span>
+          </div>
+          <div class="counter-divider"></div>
+          <div class="counter-item">
+            <span class="counter-num">∞</span>
+            <span class="counter-label">Infinite Love</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#cake-section" class="btn-primary glow-btn">
+            <i class="fa-solid fa-cake-candles"></i> Blow Out Your Candles
+          </a>
+          <a href="#memories" class="btn-secondary">
+            <i class="fa-solid fa-images"></i> Explore Our Gallery
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: POLAROID MEMORY GALLERY -->
+    <section id="memories" class="memories-section">
+      <div class="section-header text-center">
+        <span class="section-tag">Golden Moments</span>
+        <h2 class="section-title">Our Sweetest Memories 📸</h2>
+        <p class="section-subtitle">Hover over each polaroid to see it tilt in 3D, and tap to view our special moment.</p>
+      </div>
+
+      <div class="polaroid-grid">
+        
+        <div class="polaroid-card" data-tilt data-memory="1">
+          <div class="polaroid-inner">
+            <div class="polaroid-img-wrapper">
+              <img src="/assets/memory_1.jpg" alt="Under Starry Skies" class="polaroid-img">
+              <div class="polaroid-badge"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="polaroid-caption">
+              <h3>Under Starry Skies</h3>
+              <p class="polaroid-date">Magic Night</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="polaroid-card" data-tilt data-memory="2">
+          <div class="polaroid-inner">
+            <div class="polaroid-img-wrapper">
+              <img src="/assets/memory_2.jpg" alt="Sunset Walks" class="polaroid-img">
+              <div class="polaroid-badge"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="polaroid-caption">
+              <h3>Sunset Strolls</h3>
+              <p class="polaroid-date">Golden Hour</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="polaroid-card" data-tilt data-memory="3">
+          <div class="polaroid-inner">
+            <div class="polaroid-img-wrapper">
+              <img src="/assets/memory_3.jpg" alt="Cherry Blossom Date" class="polaroid-img">
+              <div class="polaroid-badge"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="polaroid-caption">
+              <h3>Spring Blossoms</h3>
+              <p class="polaroid-date">Sweet Ambiance</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="polaroid-card" data-tilt data-memory="4">
+          <div class="polaroid-inner">
+            <div class="polaroid-img-wrapper">
+              <img src="/assets/memory_4.jpg" alt="Floating Lanterns" class="polaroid-img">
+              <div class="polaroid-badge"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="polaroid-caption">
+              <h3>Lantern Dreams</h3>
+              <p class="polaroid-date">Wishes Come True</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: "REASONS WHY I LOVE YOU" 3D FLIP CARDS -->
+    <section id="reasons" class="reasons-section">
+      <div class="section-header text-center">
+        <span class="section-tag">Straight From My Heart</span>
+        <h2 class="section-title">Reasons Why I Love You 💖</h2>
+        <p class="section-subtitle">Click on any card to flip it and reveal a love message!</p>
+      </div>
+
+      <div class="flip-cards-grid">
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <div class="card-icon"><i class="fa-solid fa-face-smile-beam"></i></div>
+              <h3>Your Radiant Smile</h3>
+              <span class="tap-hint">Tap to flip ✨</span>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <p>Your smile lights up my whole world even on the darkest days. It's my absolute favorite view in the universe.</p>
+              <i class="fa-solid fa-heart heart-corner"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <div class="card-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+              <h3>Your Kind Heart</h3>
+              <span class="tap-hint">Tap to flip ✨</span>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <p>The way you care for everyone around you shows how pure and beautiful your soul really is.</p>
+              <i class="fa-solid fa-heart heart-corner"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <div class="card-icon"><i class="fa-solid fa-laugh-beam"></i></div>
+              <h3>Our Shared Laughs</h3>
+              <span class="tap-hint">Tap to flip ✨</span>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <p>Every funny inside joke, silly moment, and contagious giggle with you is a memory I cherish forever.</p>
+              <i class="fa-solid fa-heart heart-corner"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <h3>Your Inspiring Spirit</h3>
+              <span class="tap-hint">Tap to flip ✨</span>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <p>You push me to be a better person every single day just by being your amazing self.</p>
+              <i class="fa-solid fa-heart heart-corner"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
+              <h3>Cozy Warmth</h3>
+              <span class="tap-hint">Tap to flip ✨</span>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <p>Being in your arms feels like home. No matter where we are, with you is my favorite place to be.</p>
+              <i class="fa-solid fa-heart heart-corner"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front glass-panel">
+              <div class="card-icon"><i class="fa-solid fa-infinity"></i></div>
+              <h3>Everything About You</h3>
+              <span class="tap-hint">Tap to flip ✨</span>
+            </div>
+            <div class="flip-card-back glass-panel">
+              <p>From your cute morning voice to your brilliant mind, I love every single detail of who you are.</p>
+              <i class="fa-solid fa-heart heart-corner"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: INTERACTIVE BIRTHDAY CAKE & CANDLE BLOWING -->
+    <section id="cake-section" class="cake-section">
+      <div class="section-header text-center">
+        <span class="section-tag">Time to Celebrate</span>
+        <h2 class="section-title">Make a Birthday Wish 🎂</h2>
+        <p class="section-subtitle">Click the candles or blow into your microphone to blow them out and trigger a fireworks celebration!</p>
+      </div>
+
+      <div class="cake-container glass-panel">
+        
+        <div class="cake-stage">
+          <div class="cake" id="interactive-cake">
+            <!-- Candles Layer -->
+            <div class="candles-wrapper">
+              <div class="candle" data-candle="1">
+                <div class="flame" id="flame-1"></div>
+                <div class="wick"></div>
+              </div>
+              <div class="candle" data-candle="2">
+                <div class="flame" id="flame-2"></div>
+                <div class="wick"></div>
+              </div>
+              <div class="candle" data-candle="3">
+                <div class="flame" id="flame-3"></div>
+                <div class="wick"></div>
+              </div>
+            </div>
+
+            <!-- Cake Layers -->
+            <div class="cake-top-icing">
+              <div class="drip drip-1"></div>
+              <div class="drip drip-2"></div>
+              <div class="drip drip-3"></div>
+              <div class="drip drip-4"></div>
+            </div>
+            <div class="cake-layer layer-top">
+              <span class="cherry">🍒</span>
+              <span class="cherry">🍒</span>
+              <span class="cherry">🍒</span>
+            </div>
+            <div class="cake-layer layer-middle"></div>
+            <div class="cake-layer layer-bottom"></div>
+            <div class="cake-plate"></div>
+          </div>
+        </div>
+
+        <div class="cake-controls">
+          <div id="wish-status-msg" class="wish-status">
+            ✨ Make your secret wish and blow out the candles! ✨
+          </div>
+
+          <div class="action-buttons">
+            <button id="blow-candle-btn" class="btn-primary blow-btn">
+              <i class="fa-solid fa-wind"></i> Blow Out Candles
+            </button>
+            <button id="mic-blow-btn" class="btn-secondary mic-btn">
+              <i class="fa-solid fa-microphone"></i> Use Microphone to Blow
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: SECRET WAX-SEALED LOVE LETTER -->
+    <section id="letter-section" class="letter-section">
+      <div class="section-header text-center">
+        <span class="section-tag">A Special Note</span>
+        <h2 class="section-title">My Secret Love Letter 💌</h2>
+        <p class="section-subtitle">Click the wax seal to break open your personal handwritten letter.</p>
+      </div>
+
+      <div class="letter-wrapper">
+        <div class="envelope-card glass-panel" id="envelope-card">
+          
+          <!-- Closed Envelope Front -->
+          <div class="envelope-closed" id="envelope-closed">
+            <div class="envelope-flap"></div>
+            <div class="wax-seal" id="wax-seal-btn">
+              <div class="wax-seal-inner">
+                <i class="fa-solid fa-heart"></i>
+                <span>Open</span>
+              </div>
+            </div>
+            <p class="envelope-label">To My Dearest Shreya ❤️</p>
+          </div>
+
+          <!-- Opened Letter Parchment -->
+          <div class="letter-open hidden" id="letter-open">
+            <div class="parchment-header">
+              <span class="letter-date">August 5, 2026</span>
+              <button class="close-letter-btn" id="reclose-letter-btn" title="Close Envelope">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="parchment-body">
+              <h3 class="letter-salutation">Dearest <span class="gf-name-display">Shreya</span> (Meri Sohna),</h3>
+              <p class="typewriter-text" id="letter-content-text">
+                Happy birthday meri Sohna, baki sab thik h! Bas tum mere paas ho to meri duniya poori h. From the moment you entered my life, everything became brighter, sweeter, and infinitely more meaningful. Your laughter is my favorite song, your smile is my daily inspiration, and your hand is the only one I ever want to hold. You are my life, my happiness, and my entire world. On your special birthday, I want you to know how deeply and truly I love you. Happy Birthday, my sunshine!
+              </p>
+              <div class="letter-signature">
+                <p>Forever Yours,</p>
+                <h4 id="letter-sender-name">With All My Love ❤️</h4>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer text-center">
+      <p class="footer-heart">
+        Crafted with endless love & interactive magic for <span class="gf-name-display">Shreya</span> 💖
+      </p>
+      <p class="footer-copy">Happy Birthday, Shreya! You deserve the world & more ✨</p>
+    </footer>
+
+  </div>
+
+  <!-- ⚙️ LIVE PERSONALIZATION DRAWER / MODAL -->
+  <div id="customizer-modal" class="modal-overlay hidden">
+    <div class="modal-card glass-panel">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Customize Birthday Surprise</h3>
+        <button id="close-customizer-btn" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="customizer-form">
+          <div class="form-group">
+            <label for="input-gf-name"><i class="fa-solid fa-user-heart"></i> Girlfriend's Name / Nickname</label>
+            <input type="text" id="input-gf-name" class="form-input" placeholder="e.g. Emma, Princess, Babe">
+          </div>
+          
+          <div class="form-group">
+            <label for="input-hero-title"><i class="fa-solid fa-crown"></i> Hero Greeting Subtitle</label>
+            <input type="text" id="input-hero-title" class="form-input" placeholder="e.g. The queen of my heart">
+          </div>
+
+          <div class="form-group">
+            <label for="input-letter"><i class="fa-solid fa-envelope-open-text"></i> Secret Love Letter Text</label>
+            <textarea id="input-letter" class="form-input form-textarea" rows="4" placeholder="Write your heartfelt message here..."></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="reset-customizer-btn" class="btn-secondary">Reset Defaults</button>
+            <button type="submit" class="btn-primary">Save Changes ✨</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📸 POLAROID MEMORY LIGHTBOX MODAL -->
+  <div id="lightbox-modal" class="modal-overlay hidden">
+    <div class="lightbox-content glass-panel">
+      <button id="close-lightbox-btn" class="modal-close-btn">&times;</button>
+      <img id="lightbox-img" src="" alt="Memory preview" class="lightbox-img">
+      <div class="lightbox-caption text-center">
+        <h3 id="lightbox-title">Memory Title</h3>
+        <p id="lightbox-desc">A wonderful moment together.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Main Scripts -->
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
