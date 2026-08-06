@@ -349,10 +349,7 @@ body {
   transform: scale(1.05);
 }
 
-.nav-edit-btn {
-  padding: 8px 18px;
-  font-size: 0.9rem;
-}
+
 
 /* ==========================================================================
    HERO SECTION
@@ -1057,10 +1054,6 @@ body {
   }
   .nav-brand {
     font-size: 1.05rem;
-  }
-  .nav-edit-btn {
-    padding: 6px 14px;
-    font-size: 0.82rem;
   }
   .icon-btn {
     width: 38px;
