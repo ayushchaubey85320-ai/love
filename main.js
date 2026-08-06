@@ -226,50 +226,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 10. Live Customizer Modal Panel
-  const customizerModal = document.getElementById('customizer-modal');
-  const customizerToggleBtn = document.getElementById('customizer-toggle-btn');
-  const closeCustomizerBtn = document.getElementById('close-customizer-btn');
-  const customizerForm = document.getElementById('customizer-form');
-  const resetCustomizerBtn = document.getElementById('reset-customizer-btn');
 
-  const inputGfName = document.getElementById('input-gf-name');
-  const inputHeroTitle = document.getElementById('input-hero-title');
-  const inputLetter = document.getElementById('input-letter');
-
-  if (customizerToggleBtn) {
-    customizerToggleBtn.addEventListener('click', () => {
-      inputGfName.value = userData.gfName;
-      inputHeroTitle.value = userData.heroTitle;
-      inputLetter.value = userData.letterText;
-      customizerModal.classList.remove('hidden');
-    });
-  }
-
-  if (closeCustomizerBtn) {
-    closeCustomizerBtn.addEventListener('click', () => customizerModal.classList.add('hidden'));
-  }
-
-  if (customizerForm) {
-    customizerForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      userData.gfName = inputGfName.value.trim() || defaultData.gfName;
-      userData.heroTitle = inputHeroTitle.value.trim() || defaultData.heroTitle;
-      userData.letterText = inputLetter.value.trim() || defaultData.letterText;
-
-      localStorage.setItem('birthday_gf_data', JSON.stringify(userData));
-      updateDOMWithUserData();
-      customizerModal.classList.add('hidden');
-      audioEngine.playSparkleChime();
-    });
-  }
-
-  if (resetCustomizerBtn) {
-    resetCustomizerBtn.addEventListener('click', () => {
-      userData = { ...defaultData };
-      localStorage.removeItem('birthday_gf_data');
-      updateDOMWithUserData();
-      customizerModal.classList.add('hidden');
-    });
-  }
 });
